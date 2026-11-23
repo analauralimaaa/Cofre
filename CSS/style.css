@@ -1,0 +1,372 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+    --pink: #f2b9c8;
+    --pink-dark: #d98da5;
+    --pink-light: #fff0f4;
+    --ink: #493c43;
+    --muted: #9b858e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px 16px;
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #fff7f8,
+        #fce8ee,
+        #fff8f3
+    );
+}
+
+.shell {
+    width: min(100%, 920px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    color: var(--pink-dark);
+    font: 11px 'DM Mono', monospace;
+    letter-spacing: .19em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 9px 0 5px;
+    font-size: 42px;
+    letter-spacing: -.05em;
+}
+
+h1 span {
+    color: var(--pink-dark);
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    background: rgba(255,255,255,.85);
+    border-radius: 28px;
+    box-shadow: 0 22px 60px rgba(117,74,89,.13);
+}
+
+.vault-side {
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 22px;
+    background: linear-gradient(160deg, #fff5f7, #f8dce5);
+}
+
+.vault-label {
+    font: 11px 'DM Mono', monospace;
+    letter-spacing: .16em;
+    color: #b47c8e;
+    margin-bottom: 18px;
+}
+
+.safe-wrap {
+    width: min(100%, 340px);
+    transition: transform .6s;
+}
+
+.safe-wrap.unlocked {
+    transform: translateY(-7px) rotate(-1deg);
+}
+
+svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 12px rgba(139,87,105,.17));
+}
+
+.door {
+    transform-origin: 105px 170px;
+    transition: transform .85s;
+}
+
+.unlocked .door {
+    transform: perspective(500px) rotateY(-62deg);
+}
+
+.status-stamp {
+    margin-top: 14px;
+    border-radius: 999px;
+    padding: 8px 14px;
+    background: white;
+    color: #ad7b8c;
+    font: 10px 'DM Mono', monospace;
+    letter-spacing: .12em;
+}
+
+.status-stamp.open {
+    color: #56866e;
+    background: #eaf6ee;
+}
+
+.panel {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mini {
+    color: var(--pink-dark);
+    font: 11px 'DM Mono', monospace;
+    letter-spacing: .16em;
+}
+
+h2 {
+    margin: 9px 0 8px;
+    font-size: 27px;
+}
+
+.instructions {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 25px;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.input-row {
+    display: flex;
+    gap: 9px;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    border: 1.5px solid #f0d5de;
+    border-radius: 13px;
+    padding: 14px;
+    background: #fffafb;
+    color: var(--ink);
+    font: 18px 'DM Mono', monospace;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--pink-dark);
+    box-shadow: 0 0 0 4px rgba(217,141,165,.13);
+}
+
+button {
+    border: 0;
+    border-radius: 13px;
+    padding: 13px 17px;
+    cursor: pointer;
+    font: 800 13px 'Nunito', sans-serif;
+    transition: .2s;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: .48;
+    cursor: not-allowed;
+}
+
+.try-btn {
+    color: white;
+    background: linear-gradient(135deg, #e5a2b6, #cf8099);
+}
+
+.message {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    margin: 14px 0 19px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff5f7;
+    color: #a66e81;
+    font-size: 13px;
+}
+
+.message.good {
+    background: #edf7f0;
+    color: #56866e;
+}
+
+.message.warn {
+    background: #fff0e5;
+    color: #b66c37;
+}
+
+.message.error {
+    background: #fff0f0;
+    color: #b45f69;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.stat {
+    background: #fff8fa;
+    border: 1px solid #f6e8ec;
+    border-radius: 14px;
+    padding: 13px;
+}
+
+.stat small {
+    display: block;
+    color: #aa929b;
+    font: 10px 'DM Mono', monospace;
+}
+
+.stat strong {
+    display: block;
+    margin-top: 5px;
+    font: 700 21px 'DM Mono', monospace;
+    color: #70515d;
+}
+
+.progress {
+    display: flex;
+    gap: 6px;
+    margin: 17px 0 21px;
+}
+
+.dot {
+    height: 5px;
+    flex: 1;
+    border-radius: 9px;
+    background: #f1e4e8;
+}
+
+.dot.used {
+    background: #e4a3b6;
+}
+
+.dot.last {
+    background: #e7a15f;
+}
+
+.reset-btn {
+    width: 100%;
+    background: white;
+    color: #a87989;
+    border: 1px solid #efd8df;
+}
+
+.hint {
+    text-align: center;
+    color: #b49da6;
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+/* Caixa suspensa de sucesso */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(65,45,54,.35);
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: min(100%, 390px);
+    text-align: center;
+    padding: 36px 28px;
+    border-radius: 26px;
+    background: #fffdfc;
+    box-shadow: 0 25px 80px rgba(54,31,40,.25);
+    transform: translateY(18px) scale(.97);
+    transition: .35s;
+}
+
+.overlay.show .modal {
+    transform: translateY(0) scale(1);
+}
+
+.medal {
+    width: 62px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #eaf6ee;
+    font-size: 29px;
+}
+
+.modal h2 {
+    color: #56866e;
+}
+
+.modal p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.modal button {
+    width: 100%;
+    color: white;
+    background: linear-gradient(135deg, #9bc7ad, #6eaa89);
+}
+
+@media (max-width: 680px) {
+    .game {
+        grid-template-columns: 1fr;
+    }
+
+    .vault-side {
+        min-height: 330px;
+    }
+
+    .safe-wrap {
+        width: min(76%, 260px);
+    }
+
+    .panel {
+        padding: 29px 24px;
+    }
+}
+

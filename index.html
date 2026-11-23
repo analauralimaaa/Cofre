@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Cofre 007</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main class="shell">
+
+        <header>
+            <div class="eyebrow">Uma missão delicada</div>
+            <h1>Senha do<span> Cofre</span></h1>
+            <p class="subtitle">
+                Um pequeno mistério. Uma combinação. Sete chances.
+            </p>
+        </header>
+
+        <section class="game">
+
+            <div class="vault-side">
+                <div class="vault-label">
+                    COFRE Nº 007
+                </div>
+
+                <div class="safe-wrap" id="safeWrap">
+
+                    <svg viewBox="0 0 320 330">
+
+                        <defs>
+                            <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#fffdfd"/>
+                                <stop offset="1" stop-color="#f3dce3"/>
+                            </linearGradient>
+
+                            <linearGradient id="doorGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#f9dce5"/>
+                                <stop offset="1" stop-color="#e8aabd"/>
+                            </linearGradient>
+                        </defs>
+
+                        <ellipse cx="160" cy="294" rx="112" ry="17"
+                            fill="#d49eae" opacity=".22"/>
+
+                        <rect x="51" y="42" width="218" height="248"
+                            rx="25" fill="#dca6b6"/>
+
+                        <rect x="42" y="32" width="218" height="248"
+                            rx="25" fill="url(#bodyGrad)"
+                            stroke="#e8c5d0" stroke-width="3"/>
+
+                        <rect x="55" y="45" width="192" height="222"
+                            rx="18" fill="#fff"
+                            stroke="#f0dce2" stroke-width="2"/>
+
+                        <g fill="#e5b5c3">
+                            <circle cx="67" cy="58" r="3"/>
+                            <circle cx="235" cy="58" r="3"/>
+                            <circle cx="67" cy="254" r="3"/>
+                            <circle cx="235" cy="254" r="3"/>
+                        </g>
+
+                        <g class="door" id="safeDoor">
+
+                            <rect x="75" y="65" width="153" height="183"
+                                rx="15" fill="url(#doorGrad)"
+                                stroke="#d994aa" stroke-width="3"/>
+
+                            <rect x="84" y="74" width="135" height="165"
+                                rx="11" fill="none"
+                                stroke="#fff4f7" stroke-width="2"/>
+
+                            <circle cx="151" cy="153" r="43"
+                                fill="#fff9fa" stroke="#d58ea5" stroke-width="5"/>
+
+                            <circle cx="151" cy="153" r="34"
+                                fill="#f6dce4" stroke="#fff" stroke-width="3"/>
+
+                            <circle cx="151" cy="153" r="24"
+                                fill="#fff" stroke="#e9b9c8" stroke-width="2"/>
+
+                            <path d="M151 133 L151 153 L165 161"
+                                fill="none" stroke="#c77f96"
+                                stroke-width="4" stroke-linecap="round"/>
+
+                            <circle cx="151" cy="153" r="4" fill="#c77f96"/>
+
+                        </g>
+
+                        <rect x="253" y="112" width="17" height="34"
+                            rx="7" fill="#d994aa"/>
+
+                        <rect x="253" y="164" width="17" height="34"
+                            rx="7" fill="#d994aa"/>
+
+                        <text x="151" y="313" text-anchor="middle"
+                            font-size="9" fill="#bd8295">
+                            By Ana Laura
+                        </text>
+
+                    </svg>
+
+                </div>
+
+                <div class="status-stamp" id="safeStatus">
+                    ● SISTEMA BLOQUEADO
+                </div>
+            </div>
+
+            <div class="panel">
+
+                <div class="mini">Decifre a combinação</div>
+
+                <h2>Qual é a senha?</h2>
+
+                <p class="instructions">
+                    O cofre guarda um segredo entre
+                    <strong>1 e 50</strong>. Você tem 7 tentativas
+                    para encontrar o número certo.
+                </p>
+
+                <label for="guess">DIGITE UM NÚMERO</label>
+
+                <div class="input-row">
+
+                    <input
+                        type="number"
+                        id="guess"
+                        min="1"
+                        max="50"
+                        placeholder="1 — 50"
+                    >
+
+                    <button class="try-btn" id="tryButton">
+                        Tentar ↗
+                    </button>
+
+                </div>
+
+                <p class="message" id="message">
+                    ✦ Seu palpite será a primeira pista.
+                </p>
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <small>Tentativas usadas</small>
+                        <strong id="used">0 / 7</strong>
+                    </div>
+
+                    <div class="stat">
+                        <small>Restantes</small>
+                        <strong id="remaining">7</strong>
+                    </div>
+
+                </div>
+
+                <div class="progress" id="progress">
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                    <i class="dot"></i>
+                </div>
+
+                <button class="reset-btn" id="resetButton">
+                    ↻ Reiniciar e sortear outra senha
+                </button>
+
+                <p class="hint">
+                    Cada tentativa revela se você está perto.
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Caixa suspensa de sucesso -->
+    <div class="overlay" id="overlay">
+
+        <div class="modal">
+
+            <div class="medal">✧</div>
+
+            <h2>Parabéns! Cofre desbloqueado</h2>
+
+            <p id="successText">
+                Você encontrou a combinação secreta.
+            </p>
+
+            <button id="playAgain">
+                Jogar novamente
+            </button>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
